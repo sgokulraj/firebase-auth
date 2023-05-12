@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Profile page">
+    <title>Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>
+        .banner {
+            background-color: navy;
+            color: white;
+        }
+
+        .bannerContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .userContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 25%;
+            min-height: 42px;
+            overflow: auto;
+        }
+
+        .username {
+            padding-right: 15px;
+            margin-right: 30px;
+            ;
+        }
+
+        #gender {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .main {
+            position: relative;
+            top: 10px;
+            max-width: 500px;
+            min-height: 200px;
+            overflow: auto;
+            margin: 20px auto;
+            padding: 50px 10px;
+            /* border: 1px solid navy; */
+        }
+
+        #btns {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            width: 50%;
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <div class="px-3 py-2 banner">
+        <div class="bannerContainer">
+            <h1>Firebase-Auth</h1>
+            <div class="userContainer  pt-2">
+                <p><strong>Welcome, </strong><span id="uname" class="text-capitalize username"></span>
+                    <button id="logout" class="w-10 btn" style="background-color: white; color: black;">Logout</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="main">
+        <h2 style="text-align: center;" class="mb-3">Your Profile</h2>
+        <form action="#" id="form">
+            <div class="form-floating mb-3">
+                <input type="text" name="username" id="username" class="form-control text-capitalize"
+                    placeholder="name@example.com" disabled>
+                <label for="username">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="date" name="dob" id="dob" class="form-control" placeholder="name@example.com" disabled>
+                <label for="dob">Date of Birth</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="email" name="email" id="email" class="form-control" placeholder="name@example.com"
+                    disabled>
+                <label for="email">Email</label>
+            </div>
+            <div>Gender
+                <div id="gender" class="my-3">
+                    <div class="form-check px-2 mx-3">
+                        <input type="radio" name="gender" id="male" value="male" disabled>
+                        <label for="male" class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check px-2 mx-3">
+                        <input type="radio" name="gender" id="female" value="female" disabled>
+                        <label for="female" class="form-check-label">Female</label>
+                    </div>
+                    <div class="form-check px-2 mx-3">
+                        <input type="radio" name="gender" id="others" value="others" disabled>
+                        <label for="others" class="form-check-label">Others</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <select name="qualifications" id="qualifications" class="form-select" disabled>
+                    <option value="B.E">B.E</option>
+                    <option value="B.Tech">B.Tech</option>
+                    <option value="B.Sc">B.Sc</option>
+                </select>
+                <label for="qualification">Qualifications</label>
+            </div>
+            <div class="mt-3">Skills set
+                <div class="my-3">
+                    <div class="form-check">
+                        <input type="checkbox" name="html" id="html" value="HTML" class="form-check-input" disabled>
+                        <label for="html" class="form-check-label">HTML</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="css" id="css" value="CSS" class="form-check-input" disabled>
+                        <label for="css" class="form-check-label">CSS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="js" id="js" value="JavaScript" class="form-check-input" disabled>
+                        <label for="js" class="form-check-label">JavaScript</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="react" id="react" value="ReactJS" class="form-check-input"
+                            disabled>
+                        <label for="react" class="form-check-label">React JS</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" name="angular" id="angular" value="Angular" class="form-check-input"
+                            disabled>
+                        <label for="angular" class="form-check-label">Angular</label>
+                    </div>
+                </div>
+                <div class="form-floating mb-3">
+                    <textarea name="otherskills" id="otherskills" cols="10" rows="0" wrap="hard" class="form-control"
+                        placeholder="Leave a comment here" disabled></textarea>
+                    <label for="otherskills">Other Skills</label>
+
+                </div>
+                <div id="btns">
+                    <div class="me-2">
+                        <button type="submit" id="edit" class="w-10 btn"
+                            style="background-color: navy; color: white;">Edit</button>
+                    </div>
+                    <div class="me-2">
+                        <button type="reset" id="save" class="w-10 btn"
+                            style="background-color: navy; color: white;">Save</button>
+                    </div>
+                    <div>
+                        <button type="reset" id="deleteAcc" class="w-10 btn"
+                            style="background-color: navy; color: white;">Delete</button>
+                    </div>
+                </div>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-app.js";
+        import { getDatabase, ref, onValue, set, update } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-database.js";
+        import { getAuth, signOut, deleteUser } from "https://www.gstatic.com/firebasejs/9.21.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCRwmr9Pqhmje_f_coHgyiOzkDMXWqD72I",
+            authDomain: "fir-registration-ca36a.firebaseapp.com",
+            projectId: "fir-registration-ca36a",
+            storageBucket: "fir-registration-ca36a.appspot.com",
+            messagingSenderId: "696531248877",
+            appId: "1:696531248877:web:1f01b31d3cc8185863cee4"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        const db = getDatabase();
+
+        let form = document.querySelector("#form");
+
+        let radioBtns = document.querySelectorAll("[name='gender']");
+        let gender;
+        let qualifications = document.querySelector("#qualifications");
+        let checkboxes = document.querySelectorAll("[type = 'checkbox']");
+        let skills = '';
+        let otherskills = document.querySelector("#otherskills")
+
+
+        let logout = document.querySelector("#logout");
+        let edit = document.querySelector("#edit");
+        let save = document.querySelector("#save");
+        let deleteAcc = document.querySelector("#deleteAcc");
+
+        let uname = document.querySelector("#uname")
+
+        let urlParams = new URLSearchParams(location.search);
+        let [uid] = urlParams.values();
+
+        const userDetails = ref(db, 'users/' + uid);
+        onValue(userDetails, (snapshot) => {
+            const data = snapshot.val();
+            uname.textContent = data?.username;
+
+            form[0].value = data?.username;
+            form[1].value = data?.["date of birth"];
+            form[2].value = data?.email;
+
+            if (radioBtns.length) {
+                radioBtns.forEach((radioBtn) => {
+                    if (data?.gender == radioBtn.value) {
+                        radioBtn.checked = true;
+                    }
+                });
+            }
+            qualifications.value = data?.qualifications;
+
+            let skillArr = data?.skills.split(" ");
+            if (checkboxes.length) {
+                checkboxes.forEach((checkBox) => {
+                    if (skillArr?.includes(checkBox.value)) {
+                        checkBox.checked = true;
+                    }
+                })
+            }
+            otherskills.value = data?.["other skills"]
+
+        });
+
+        logout.addEventListener("click", (e) => {
+            e.preventDefault();
+            signOut(auth).then(() => {
+                alert("Sign-out successful");
+                window.location.href = "./signin.html"
+
+            }).catch((error) => {
+                // An error happened.
+            });
+        })
+
+        edit.addEventListener("click", (e) => {
+            e.preventDefault();
+            form[0].disabled = false;
+            form[1].disabled = false;
+            form[2].disabled = true;
+            radioBtns[0].disabled = false;
+            radioBtns[1].disabled = false;
+            radioBtns[2].disabled = false;
+            qualifications.disabled = false;
+            checkboxes[0].disabled = false;
+            checkboxes[1].disabled = false;
+            checkboxes[2].disabled = false;
+            checkboxes[3].disabled = false;
+            checkboxes[4].disabled = false;
+            otherskills.disabled = false;
+
+
+        });
+
+        save.addEventListener("click", (e) => {
+            e.preventDefault();
+            let updatedUsername = form[0].value;
+            let updatedDob = form[1].value;
+            let email = form[2].value;
+            let radioBtns = document.querySelectorAll("[name='gender']");
+            let updatedGender;
+            radioBtns.forEach((radioBtn) => {
+                if (radioBtn.checked) {
+                    updatedGender = radioBtn.value;
+                }
+            });
+
+            let updatedQualifications = document.querySelector("#qualifications").value;
+
+            let checkboxes = document.querySelectorAll("[type = 'checkbox']");
+            let updatedSkills = '';
+            checkboxes.forEach((checkBox) => {
+                if (checkBox.checked) {
+                    updatedSkills = updatedSkills + " " + checkBox.value;
+                }
+            })
+
+            let updatedOtherskills = document.querySelector("#otherskills").value
+
+            form[0].disabled = true;
+            form[1].disabled = true;
+            form[2].disabled = true;
+            radioBtns[0].disabled = true;
+            radioBtns[1].disabled = true;
+            radioBtns[2].disabled = true;
+            qualifications.disabled = true;
+            checkboxes[0].disabled = true;
+            checkboxes[1].disabled = true;
+            checkboxes[2].disabled = true;
+            checkboxes[3].disabled = true;
+            checkboxes[4].disabled = true;
+            otherskills.disabled = true;
+
+            const updatedData = {
+                uid: uid,
+                username: updatedUsername,
+                email: email,
+                "date of birth": updatedDob,
+                gender: updatedGender,
+                qualifications: updatedQualifications,
+                skills: updatedSkills,
+                "other skills": updatedOtherskills
+
+            };
+
+            const updates = {}
+            updates['/users/' + uid] = updatedData;
+            update(ref(db), updates)
+            alert("Your Profile is Updated :)")
+        })
+
+        deleteAcc.addEventListener("click", (e) => {
+            e.preventDefault();
+            let response = confirm("Are you sure about deleting your Account");
+            if (response) {
+                //for deleting the data in DB
+                const updates = {}
+                updates['/users/' + uid] = null;
+                update(ref(db), updates);
+
+                //For deleting the data in auth
+                const removeUser = auth?.currentUser;
+                deleteUser(removeUser).then(() => {
+                    alert("your account is deleted!!! We miss you :( ")
+                    window.location.href = "./index.html"
+                }).catch((error) => {
+                    alert(error)
+                });
+            }
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
